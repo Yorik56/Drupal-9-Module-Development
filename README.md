@@ -20,3 +20,17 @@ options:
     param:
       type: entity:node
 ```
+
+# Chapter 3
+
+> logging
+>http://drupal.docker.localhost:8000/admin/reports/dblog
+
+> Drupal 7 watchdog
+> https://api.drupal.org/api/drupal/includes%21bootstrap.inc/function/watchdog/7.x
+
+> Drupal 9 logging
+```php
+\Drupal::logger('hello_world')->error('Hello World');
+```
+
