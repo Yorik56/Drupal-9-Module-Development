@@ -16,7 +16,7 @@ https://api.drupal.org/api/drupal/elements/9.0.x
 
 ```yaml
 options:
-	parameters:
-		param:
-			type: entity:node
+  parameters:
+    param:
+      type: entity:node
 ```
