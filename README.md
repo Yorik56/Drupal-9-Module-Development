@@ -1,4 +1,11 @@
-# Chapter 2
+# Chapter 2 - Module creation
+
+- Module creation
+- Using services
+- The form API
+- Block Plugins
+- Working with links
+- Event dispatchers
 
 https://github.com/PacktPublishing/Drupal-9-Module-Development-Third-Edition/tree/master/packt/chapter2
 
@@ -28,7 +35,11 @@ http://drupal.docker.localhost:8000/hello
 http://drupal.docker.localhost:8000/admin/config/salutation-configuration
 
 
-# Chapter 3
+# Chapter 3 - Logging & Mailing
+
+- Logging 
+- Mail API
+- Tokens
 
 > logging
 >http://drupal.docker.localhost:8000/admin/reports/dblog
@@ -40,4 +51,16 @@ http://drupal.docker.localhost:8000/admin/config/salutation-configuration
 ```php
 \Drupal::logger('hello_world')->error('Hello World');
 ```
+
+# Chapter 4 - Theming
+
+- Buisness logic vs presentation logic
+- Twig
+- Theme hooks
+- Render arrays
+- Assets and libraries
+- Common theme hooks
+- Attributes
+- Layouts
+- Theming the Hello World module
 
