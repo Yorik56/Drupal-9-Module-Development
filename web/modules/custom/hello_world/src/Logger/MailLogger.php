@@ -58,18 +58,4 @@
 					['message' => $markup]
 				);
 		}
-
-		/**
-		 * Implements hook_mail().
-		 */
-		function hello_world_mail($key, &$message, $params) {
-			switch ($key) {
-				case 'hello_world_log':
-					$message['from'] = \Drupal::config('system.site')->get('mail');
-					$message['subject'] = t('There is an error on your website');
-					$message['body'][] = $params['message'];
-
-					break;
-			}
-		}
 	}

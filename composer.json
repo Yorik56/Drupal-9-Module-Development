@@ -24,6 +24,7 @@
         "drupal/core-recommended": "^9.4",
         "drupal/gin": "^3.0@beta",
         "drupal/gin_toolbar": "^1.0@beta",
+        "drupal/smtp": "^1.0",
         "drush/drush": "^10",
         "vlucas/phpdotenv": "^5.1",
         "webflo/drupal-finder": "^1.2"
