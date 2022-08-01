@@ -72,3 +72,6 @@ http://smacss.com/
 - component: UI elements and reusable components
 - states: Styles used in client-side changes to components
 - theme: Visual styling of components
+
+> Differents ways to attach libraries by context
+https://www.drupal.org/docs/creating-modules/adding-assets-css-js-to-a-drupal-module-via-librariesyml
