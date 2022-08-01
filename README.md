@@ -21,6 +21,13 @@ options:
       type: entity:node
 ```
 
+> Route greeting salutation route
+http://drupal.docker.localhost:8000/hello
+
+> Route greeting form salutation route
+http://drupal.docker.localhost:8000/admin/config/salutation-configuration
+
+
 # Chapter 3
 
 > logging
