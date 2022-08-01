@@ -64,3 +64,11 @@ http://drupal.docker.localhost:8000/admin/config/salutation-configuration
 - Layouts
 - Theming the Hello World module
 
+> SMACSS Standards 
+http://smacss.com/
+
+- base: CSS reset/normalizers and HTML styling
+- layout: High-level page styling (grid system)
+- component: UI elements and reusable components
+- states: Styles used in client-side changes to components
+- theme: Visual styling of components
