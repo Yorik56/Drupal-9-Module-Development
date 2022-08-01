@@ -12,8 +12,8 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * @Mail(
  *     id = "hello_world_mail",
  *     label = @Translation("Hello World mailer"),
- *     description = @Translation("Sends a mail using an API specific to our Hello World module."
- * ),
+ *     description = @Translation("Sends a mail using an API specific to our Hello World module.")
+ * )
  */
 class HelloWorldMail implements MailInterface, ContainerFactoryPluginInterface {
 

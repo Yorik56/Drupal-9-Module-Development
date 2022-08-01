@@ -30,7 +30,8 @@ function hello_world_mail($key, &$message, $params) {
 			$message['from'] = \Drupal::config('system.site')->get('mail');
 			$message['subject'] = t('There is an error on your website');
 			$message['body'][] = $params['message'];
-
+			$user_message = 'The user that was logged in: [current-user:name].';
+			$message['body'][] = \Drupal::token()->replace($user_message, ['current-user' => \Drupal::currentUser()]);
 			break;
 	}
 }
