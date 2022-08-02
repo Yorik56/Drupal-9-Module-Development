@@ -67,6 +67,13 @@ class HelloWorldSalutation {
 	public function getSalutationComponent() {
 		$render = [
 			'#theme' => 'hello_world_salutation',
+			'#salutation' => [
+				'#contextual_links' => [
+					'hello_world' => [
+						'route_parameters' => [],
+					],
+				],
+			],
 		];
 
 		$config = $this->configFactory->get('hello_world.custom_salutation');
@@ -76,7 +83,7 @@ class HelloWorldSalutation {
 			$event = new SalutationEvent();
 			$event->setValue($salutation);
 			$event = $this->eventDispatcher->dispatch(SalutationEvent::EVENT, $event);
-			$render['#salutation'] = $event->getValue();
+			$render['#salutation']['#markup'] = $event->getValue();
 			$render['#overridden'] = TRUE;
 			return $render;
 		}
@@ -85,17 +92,17 @@ class HelloWorldSalutation {
 		$render['#target'] = $this->t('world');
 
 		if((int) $time->format('G') >= 00 && (int) $time->format('G') < 12) {
-			$render['#salutation'] = $this->t('Good morning');
+			$render['#salutation']['#markup'] = $this->t('Good morning');
 			return $render;
 		}
 
 		if((int) $time->format('G') >= 12 && (int) $time->format('G') < 18) {
-			$render['#salutation'] = $this->t('Good afternoon');
+			$render['#salutation']['#markup'] = $this->t('Good afternoon');
 			return $render;
 		}
 
 		if((int) $time->format('G') >= 18 && (int) $time->format('G') < 24) {
-			$render['#salutation'] = $this->t('Good evening');
+			$render['#salutation']['#markup'] = $this->t('Good evening');
 			return $render;
 		}
 	}
