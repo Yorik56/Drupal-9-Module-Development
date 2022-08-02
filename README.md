@@ -37,7 +37,7 @@ http://drupal.docker.localhost:8000/admin/config/salutation-configuration
 
 # Chapter 3 - Logging & Mailing
 
-- Logging 
+- Logging
 - Mail API
 - Tokens
 
@@ -64,7 +64,7 @@ http://drupal.docker.localhost:8000/admin/config/salutation-configuration
 - Layouts
 - Theming the Hello World module
 
-> SMACSS Standards 
+> SMACSS Standards
 http://smacss.com/
 
 - base: CSS reset/normalizers and HTML styling
@@ -75,3 +75,30 @@ http://smacss.com/
 
 > Differents ways to attach libraries by context
 https://www.drupal.org/docs/creating-modules/adding-assets-css-js-to-a-drupal-module-via-librariesyml
+
+# Chapter 5 - Menu and links
+
+- The menu system
+- Working with menu links
+- Defining local tasks
+- Defining local actions
+- Defining contextual links
+
+> Local tasks
+groupe of local tasks (tabs) "module_name.links.task.yml"
+> Local actions
+"module_name.links.action.yml"
+> Contextual links
+"module_name.links.contextual.yml"
+
+> implementing an admin menu.
+````php
+$menu_link_tree = \Drupal::menuTree();
+$parameters = $menu_link_tree->getCurrentRouteMenuTreeParameters('admin');
+$tree = $menu_link_tree->load('admin', $parameters);
+$manipulators = [
+['callable' => 'menu.default_tree_manipulators:checkAccess'],
+];
+$tree = $menu_link_tree->transform($tree, $manipulators);
+$menu = $menu_link_tree->build($tree);
+````
