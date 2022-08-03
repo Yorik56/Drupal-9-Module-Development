@@ -197,3 +197,57 @@ $user_data->delete('my_module', 'my_collection', 'my_key');
 > Configuration Shema
 
 - web/core/config/schema/core.data_types.schema.yml (exemples of data types)
+
+> Language Override
+```php
+$language_manager = \Drupal::service('language_manager');
+$language = $language_manager->getLanguage('fr');
+$original_language = $language_manager->getGetConfigOverrideLanguage();
+$language_manager->setConfigOverrideLanguage($language);
+$config = \Drupal::config('system.maintenance');
+$message = $config->get('message');
+$language_manager->setConfigOverrideLanguage($original_language);
+```
+
+> Config Overrride priority order
+
+Global override config > Module override config > Language override config.
+
+> Work with ImmutableConfig
+```php
+/**
+ * @var \Drupal\Core\Config\ConfigFactoryInterface $factory
+ */
+$factory = \Drupal::service('config.factory');
+// Get a config object. in readonly mode.
+$read_only_config = $factory->get('hello_world.custom_salutation');
+// Get a config object. in read/write mode.
+$read_and_write_config = $factory->getEdtable('hello_world.custom_salutation');
+$read_and_write_config->set('salutation', 'Hello World');
+$read_and_write_config->save();
+```
+> Load in a static way a config object
+```php
+\Drupal::config('system.maintenance');
+```
+
+> Travers down a nested config object
+```php
+$config = \Drupal::config('system.site');
+$value = $config->get('page.403');
+```
+> Get the original config object despite the possible overrides
+```php 
+$config = $factoy->get('system.maintenance');
+$value = $config->getOriginal('message', FALSE);
+```
+
+> Clear values of a config object element (set the value to NULL)
+```php
+$config->clear('message')->save();
+```
+
+> Remove a config object
+```php
+$config->delete();
+```
