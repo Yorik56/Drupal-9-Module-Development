@@ -102,3 +102,98 @@ $manipulators = [
 $tree = $menu_link_tree->transform($tree, $manipulators);
 $menu = $menu_link_tree->build($tree);
 ````
+
+# Chapter 6 - Data Modeling and Storage
+
+- Different types of data storage
+- State API
+- TempStore
+- UserData API
+- Entity
+- Typed data
+- Interacting with the Entity API
+
+> Drupal State API
+````php
+# Set a value
+\Drpal::state()->set('hello_world.message', 'Hello World');
+
+# Get a value
+Drupal::state()->get('hello_world.message');
+
+# Set/Get multiple values
+Drupal::state()->setMultiple([
+  'hello_world.message' => 'Hello World',
+  'hello_world.message2' => 'Hello World2',
+]);
+
+$values = Drpal::state()->getMultiple([
+  'hello_world.message',
+  'hello_world.message2',
+]);
+
+# Delete a value
+Drupal::state()->delete('hello_world.message');
+
+# Delete multiple values
+Drupal::state()->deleteMultiple([
+  'hello_world.message',
+  'hello_world.message2',
+]);
+````
+
+> Private TempStore
+````php
+/**
+ * @var \Drupal\Core\TempStore\PrivateTempStoreFactory $factory
+ */
+$factory = \Drupal::service('tempstore.private');
+$store = $factory->get('my_module.my_collection');
+$store->set('my_key', 'my_value');
+$value = $store->get('my_key');
+# Delete entrie
+$store->delete('my_key');
+# Get metadata
+$metadata = $store->getMetadata('my_key');
+````
+> Shared TempStore
+```php
+/**
+ * @var \Drupal\Core\TempStore\SharedTempStoreFactory $factory
+ */
+$factory = \Drupal::service('tempstore.shared');
+$store = $factory->get('my_module.my_collection');
+# Set/Get entrie
+$store->set('my_key', 'my_value');
+$value = $store->get('my_key');
+#Get metadata
+$metadata = $store->getMetadata('my_key');
+# Delete entrie
+$store->delete('my_key');
+# Set entrie if it does not exist
+$store->setIfNotExists('my_key', 'my_value');
+# Set entrie if it does not exist or belongs to the current user
+$store->setIfOwner('my_key', 'my_value');
+```
+
+> Use the UserData API
+```php
+/**
+ * @var \Drupal\user\UserData\UserDataInterface $user_data
+ */
+$user_data = \Drupal::service('user.data');
+
+# get entrie
+$value = $user_data->get('my_module', 'my_collection', 'my_key');
+
+# set entrie
+$user_data->set('my_module', 'my_collection', 'my_key', 'my_value');
+
+# delete entrie
+$user_data->delete('my_module', 'my_collection', 'my_key');
+
+# All option of the three previous methods are optional, so you can filter your actions depending on  your needs.
+```
+> Configuration Shema
+
+- web/core/config/schema/core.data_types.schema.yml (exemples of data types)
