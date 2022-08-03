@@ -11,7 +11,12 @@ services:
     parent: logger.channel_base
     arguments: ['hello_world']
   hello_world.logger.mail_logger:
-      class: Drupal\hello_world\Logger\MailLogger
-      arguments: ['@logger.log_message_parser', '@config.factory']
-      tags:
-          - { name: logger }
+    class: Drupal\hello_world\Logger\MailLogger
+    arguments: ['@logger.log_message_parser', '@config.factory']
+    tags:
+      - { name: logger }
+  hello_world.config_overrider:
+    class: Drupal\hello_world\ConfigOverrider
+    tags:
+      - { name: config.factory.override, provider: 5 }
+
