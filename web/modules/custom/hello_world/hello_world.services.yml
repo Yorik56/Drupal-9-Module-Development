@@ -16,7 +16,7 @@ services:
     tags:
       - { name: logger }
   hello_world.config_overrider:
-    class: Drupal\hello_world\ConfigOverrider
+    class: Drupal\hello_world\HelloWorldConfigOverrides
     tags:
       - { name: config.factory.override, provider: 5 }
 
