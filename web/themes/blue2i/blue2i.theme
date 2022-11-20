@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the blue2i theme.
+ */
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function blue2i_preprocess_html(&$variables) {
+
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for page.html.twig.
+ */
+function blue2i_preprocess_page(&$variables) {
+  $variables['#attached']['library'][] = 'blue2i/global-styling';
+}
+
+/**
+ * Implements hook_preprocess_HOOK() for node.html.twig.
+ */
+function blue2i_preprocess_node(&$variables) {
+
+}
+
+function blue2i_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id = NULL) {
+    // Work-around for a core bug affecting admin themes. See issue #943212.
+    if (isset($form_id)) {
+        return;
+    }
+    $position = theme_get_setting('position');
+    $form['menu_local_task'] = [
+        '#type' => 'details',
+        '#open' => TRUE,
+        '#title' => t('Menu local tasks'),
+    ];
+    $form['menu_local_task']['position'] = array(
+        '#type'             => 'radios',
+        '#title' => t('position'),
+        '#default_value'    => $position,
+        '#options'          => array(
+            0 => t('At the top left'),
+            1 => t('At the top Right'),
+            2 => t('At the bottom Left'),
+            3 => t('At the bottom Right'),
+        ),
+    );
+    $form['#submit'][] = 'blue2i_form_system_theme_settings_submit';
+}
+
+function blue2i_form_system_theme_settings_submit(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+    $config = \Drupal::configFactory()->getEditable('system.theme');
+    $config->set('position', $form_state->getValue('position'))->save();
+}
