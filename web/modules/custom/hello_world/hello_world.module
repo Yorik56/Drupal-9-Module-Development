@@ -125,3 +125,5 @@ function hello_world_theme_suggestions_hello_world_salutation($variables) {
 
 	return $suggestions;
 }
+
+

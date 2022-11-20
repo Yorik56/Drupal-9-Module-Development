@@ -3,3 +3,4 @@ description: "Hello World module"
 type: module
 core_version_requirement: "^9"
 package: Custom
+configure: hello_world.settings

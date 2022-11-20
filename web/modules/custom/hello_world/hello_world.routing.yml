@@ -6,6 +6,14 @@ hello_world.hello:
   requirements:
     _permission: 'access content'
 
+hello_world.settings:
+    path: '/hello'
+    defaults:
+        _controller: '\Drupal\hello_world\Controller\HelloWorldController::helloWorld'
+        _title: 'Block layout'
+    requirements:
+        _permission: 'access content'
+
 hello_world.greeting_form:
     path: '/admin/config/salutation-configuration'
     defaults:
@@ -13,3 +21,4 @@ hello_world.greeting_form:
         _title: 'Salutation configuration'
     requirements:
         _permission: 'administer site configuration'
+
