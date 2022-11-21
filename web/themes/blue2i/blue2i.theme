@@ -73,7 +73,7 @@ function blue2i_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormS
         '#type' => 'textfield',
         '#title' => t('margin'),
         '#default_value' => $margin,
-        '#size' => 60,
+        '#size' => 5,
         '#maxlength' => 128,
         '#required' => FALSE,
     ];
