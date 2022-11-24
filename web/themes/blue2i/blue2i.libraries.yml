@@ -1,0 +1,21 @@
+# Main theme library.
+global:
+  js:
+    js/blue2i.js: {}
+
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/layout.css: {}
+      css/style.css: {}
+      css/colors.css: {}
+
+slick-carousel:
+  version: 1.x
+  css:
+    theme:
+      node_modules/slick-carousel/slick/slick.css: {}
+      node_modules/slick-carousel/slick/slick-theme.css: {}
+  js:
+    node_modules/slick-carousel/slick/slick.js: {}

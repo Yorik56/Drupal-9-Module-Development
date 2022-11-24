@@ -25,3 +25,5 @@
 #/.env
 /.editorconfig
 /.gitattributes
+/web/themes/blue2i/node_modules/
+/node_modules/

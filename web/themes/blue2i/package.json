@@ -1,0 +1,19 @@
+{
+  "name": "blue2i",
+  "private": true,
+  "scripts": {
+    "sass-watch": "node-sass -w --output-style expanded scss -o css",
+    "sass-compile": "node-sass --output-style expanded scss -o css",
+    "livereload": "livereload css",
+    "start": "run-p sass-watch livereload"
+  },
+  "devDependencies": {
+    "laravel-mix": "^6.0.49",
+    "resolve-url-loader": "^5.0.0",
+    "sass": "^1.54.5",
+    "sass-loader": "^12.1.0"
+  },
+  "dependencies": {
+    "slick-carousel": "^1.8.1"
+  }
+}

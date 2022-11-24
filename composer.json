@@ -26,6 +26,7 @@
         "drupal/gin": "^3.0@beta",
         "drupal/gin_toolbar": "^1.0@beta",
         "drupal/paragraphs": "^1.14",
+        "drupal/paragraphs_access": "^2.0@RC",
         "drupal/smtp": "^1.0",
         "drupal/twig_tweak": "^3.2",
         "drush/drush": "^10",
