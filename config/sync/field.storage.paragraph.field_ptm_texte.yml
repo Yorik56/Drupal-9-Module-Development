@@ -5,6 +5,8 @@ dependencies:
   module:
     - paragraphs
     - text
+_core:
+  default_config_hash: ZAkaHFAA8VZ0qlkXMUAk9xxHZ548QO9y9hx7Ji8TYIE
 id: paragraph.field_ptm_texte
 field_name: field_ptm_texte
 entity_type: paragraph

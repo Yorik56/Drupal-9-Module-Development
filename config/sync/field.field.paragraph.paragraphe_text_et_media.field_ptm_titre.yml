@@ -5,6 +5,8 @@ dependencies:
   config:
     - field.storage.paragraph.field_ptm_titre
     - paragraphs.paragraphs_type.paragraphe_text_et_media
+_core:
+  default_config_hash: xjG1cU2SsLA9kDC97lL_Noj9AY5_yPxrsWKHXoyXGGA
 id: paragraph.paragraphe_text_et_media.field_ptm_titre
 field_name: field_ptm_titre
 entity_type: paragraph

@@ -9,6 +9,8 @@ dependencies:
     - paragraphs.paragraphs_type.paragraphe_text_et_media
   module:
     - text
+_core:
+  default_config_hash: PP74ws2rNMOiS5Dfg0MPqj0UGXACPp-xAJOQHKCnDvg
 id: paragraph.paragraphe_text_et_media.default
 targetEntityType: paragraph
 bundle: paragraphe_text_et_media

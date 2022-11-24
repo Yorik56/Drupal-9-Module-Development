@@ -2,6 +2,8 @@ uuid: 1c22d3b0-880b-4574-b259-aeeea5a7890f
 langcode: fr
 status: true
 dependencies: {  }
+_core:
+  default_config_hash: G-T-VLum1EubAKc5aLd58xPieijYdJR5TwDw4mlp0pw
 id: paragraphe_text_et_media
 label: 'Paragraphe text et média'
 icon_uuid: null

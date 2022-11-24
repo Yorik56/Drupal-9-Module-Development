@@ -6,6 +6,8 @@ dependencies:
     - field.storage.paragraph.field_ptm_media
     - media.type.image
     - paragraphs.paragraphs_type.paragraphe_text_et_media
+_core:
+  default_config_hash: ocdf4SwO9X3JMeF_nIdy9km8QAY3XyJne5IB99-5rYQ
 id: paragraph.paragraphe_text_et_media.field_ptm_media
 field_name: field_ptm_media
 entity_type: paragraph

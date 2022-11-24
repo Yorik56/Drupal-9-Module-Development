@@ -7,6 +7,8 @@ dependencies:
     - paragraphs.paragraphs_type.paragraphe_text_et_media
   module:
     - text
+_core:
+  default_config_hash: Djo_KiaB_xN6ypK1GFioYNtKjft2E1aSs5H7XfEKWe8
 id: paragraph.paragraphe_text_et_media.field_ptm_texte
 field_name: field_ptm_texte
 entity_type: paragraph
