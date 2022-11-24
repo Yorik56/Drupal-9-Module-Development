@@ -19,5 +19,6 @@ subtheme_folder: themes/custom
 subtheme_name: 'B5 subtheme'
 subtheme_machine_name: b5subtheme
 active: '3'
-position: '1'
+position: '2'
 margin: '37'
+langcode: fr
