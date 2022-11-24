@@ -1,0 +1,37 @@
+uuid: da374832-10bb-4500-8212-39c5b3039104
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraphe_ancre_cible.field_image
+    - field.field.paragraph.paragraphe_ancre_cible.field_lien_d_ancrage
+    - paragraphs.paragraphs_type.paragraphe_ancre_cible
+  module:
+    - link
+id: paragraph.paragraphe_ancre_cible.default
+targetEntityType: paragraph
+bundle: paragraphe_ancre_cible
+mode: default
+content:
+  field_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_lien_d_ancrage:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

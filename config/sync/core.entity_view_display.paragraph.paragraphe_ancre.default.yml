@@ -1,0 +1,14 @@
+uuid: fd77ec3c-fca3-4c2d-bdfe-a8099cafb431
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraphe_ancre.field_lien_d_ancrage
+    - paragraphs.paragraphs_type.paragraphe_ancre
+id: paragraph.paragraphe_ancre.default
+targetEntityType: paragraph
+bundle: paragraphe_ancre
+mode: default
+content: {  }
+hidden:
+  field_lien_d_ancrage: true

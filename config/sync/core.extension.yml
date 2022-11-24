@@ -31,6 +31,8 @@ module:
   language: 0
   link: 0
   locale: 0
+  media: 0
+  media_library: 0
   menu_link_content: 0
   menu_ui: 0
   mysql: 0
@@ -48,6 +50,7 @@ module:
   text: 0
   toolbar: 0
   tour: 0
+  twig_tweak: 0
   update: 0
   user: 0
   views_ui: 0
@@ -58,4 +61,8 @@ theme:
   olivero: 0
   claro: 0
   gin: 0
+  stable: 0
+  classy: 0
+  bootstrap5: 0
+  blue2i: 0
 profile: standard

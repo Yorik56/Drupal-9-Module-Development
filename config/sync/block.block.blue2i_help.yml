@@ -1,0 +1,22 @@
+uuid: c3d61df9-84e3-479e-992f-66b98e91672b
+langcode: fr
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - blue2i
+_core:
+  default_config_hash: 8nOAry2oKqJOr0zbrlJ3sZHDFJLIO6j-0vT0K_TYca4
+id: blue2i_help
+theme: blue2i
+region: header
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  label_display: '0'
+  provider: help
+visibility: {  }

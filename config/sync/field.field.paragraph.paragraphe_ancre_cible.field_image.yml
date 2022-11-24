@@ -1,0 +1,34 @@
+uuid: fa25849c-b24d-4db3-b6c8-03c810d40176
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image
+    - media.type.image
+    - paragraphs.paragraphs_type.paragraphe_ancre_cible
+  content:
+    - 'media:image:e5e4cbb6-592e-4ea8-9831-65bd25a804ff'
+id: paragraph.paragraphe_ancre_cible.field_image
+field_name: field_image
+entity_type: paragraph
+bundle: paragraphe_ancre_cible
+label: Image
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    target_uuid: e5e4cbb6-592e-4ea8-9831-65bd25a804ff
+    weight: 0
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

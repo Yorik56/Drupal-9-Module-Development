@@ -1,0 +1,10 @@
+uuid: 14cb2c3f-bf14-4e92-a280-5656250a7d92
+langcode: fr
+status: true
+dependencies: {  }
+id: paragraphe_ancre
+label: 'Paragraphe ancre'
+icon_uuid: null
+icon_default: null
+description: 'Un paragraphe qui crée dynamiquement des liens, pour chaque paragraphe (contenant un lien d''ancre) affiché sur la même page'
+behavior_plugins: {  }

@@ -1,0 +1,20 @@
+uuid: 778e6ac8-8e84-460a-8382-4bdebd9571f9
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - blue2i
+_core:
+  default_config_hash: HLQY2xgby8K3vN_98hiOSasOhm9pdCsH234-s0duJ8Q
+id: blue2i_page_title
+theme: blue2i
+region: header
+weight: -3
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

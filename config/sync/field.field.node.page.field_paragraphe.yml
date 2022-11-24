@@ -1,0 +1,41 @@
+uuid: 6d3b45d1-e1e8-4352-abbd-301420716ef5
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_paragraphe
+    - node.type.page
+    - paragraphs.paragraphs_type.paragraphe_ancre
+    - paragraphs.paragraphs_type.paragraphe_ancre_cible
+    - paragraphs.paragraphs_type.paragraphe_texte
+  module:
+    - entity_reference_revisions
+id: node.page.field_paragraphe
+field_name: field_paragraphe
+entity_type: node
+bundle: page
+label: Paragraphe
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      paragraphe_ancre: paragraphe_ancre
+      paragraphe_ancre_cible: paragraphe_ancre_cible
+      paragraphe_texte: paragraphe_texte
+    negate: 0
+    target_bundles_drag_drop:
+      paragraphe_ancre:
+        weight: 4
+        enabled: true
+      paragraphe_ancre_cible:
+        weight: 5
+        enabled: true
+      paragraphe_texte:
+        weight: 6
+        enabled: true
+field_type: entity_reference_revisions

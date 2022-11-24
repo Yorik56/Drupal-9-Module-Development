@@ -1,0 +1,22 @@
+uuid: 5b9bd44e-6cba-4496-899e-71bdc7dc6478
+langcode: fr
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - blue2i
+_core:
+  default_config_hash: hBHXB7hC05XU7pDYzETt-GUcpFlogK1gkjyAsg0Ym58
+id: blue2i_content
+theme: blue2i
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

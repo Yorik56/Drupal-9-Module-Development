@@ -1,0 +1,19 @@
+uuid: 9dbebad3-b6b2-400c-a820-a75660686b40
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_sous_titre
+    - node.type.produit
+id: node.produit.field_sous_titre
+field_name: field_sous_titre
+entity_type: node
+bundle: produit
+label: 'Sous titre'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

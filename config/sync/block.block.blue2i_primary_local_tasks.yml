@@ -1,0 +1,22 @@
+uuid: 2b6686b5-30a6-4e2b-aef1-dd37ce0832ee
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - blue2i
+_core:
+  default_config_hash: Hh01DLj9k7UnNdPpOQXHZHW7GHf2OPNDQyCJF7_R9ac
+id: blue2i_primary_local_tasks
+theme: blue2i
+region: header
+weight: -4
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility: {  }

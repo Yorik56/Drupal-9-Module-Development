@@ -1,0 +1,24 @@
+uuid: 824dee67-e4d2-4d9e-a393-9b5bc7b2c5c1
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_texte
+    - paragraphs.paragraphs_type.paragraphe_texte
+  module:
+    - text
+id: paragraph.paragraphe_texte.field_texte
+field_name: field_texte
+entity_type: paragraph
+bundle: paragraphe_texte
+label: Texte
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: "<h2><span>Lorem Ipsum - All the facts - Lipsum generator</span></h2>\r\n\r\n<p><span>Tous les générateurs de Lorem Ipsum sur Internet tendent à reproduire le même extrait sans fin, ce qui fait de lipsum.com le seul vrai générateur de Lorem Ipsum. Iil utilise un dictionnaire de plus de 200 mots latins, en combinaison de plusieurs structures de phrases, pour générer un Lorem Ipsum irréprochable.</span></p>\r\n"
+    format: basic_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long

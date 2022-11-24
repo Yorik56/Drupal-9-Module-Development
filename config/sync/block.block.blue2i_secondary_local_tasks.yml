@@ -1,0 +1,22 @@
+uuid: fdb087af-d43c-485e-93d3-8ba7e8132c49
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - blue2i
+_core:
+  default_config_hash: BCWhood0xXFQYqxFgL1spXdb9KeIuXH1YvTdjIEedDg
+id: blue2i_secondary_local_tasks
+theme: blue2i
+region: header
+weight: 0
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Secondary tabs'
+  label_display: '0'
+  provider: core
+  primary: false
+  secondary: true
+visibility: {  }

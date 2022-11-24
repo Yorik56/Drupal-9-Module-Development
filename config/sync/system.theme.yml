@@ -2,4 +2,6 @@ _core:
   default_config_hash: eJ529VM1gSIA_vgTy2PdiDvJuG0xhSxfQjCyl5WKlv4
 langcode: fr
 admin: gin
-default: gin
+default: blue2i
+active: '3'
+position: '1'

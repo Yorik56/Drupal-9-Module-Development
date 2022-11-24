@@ -1,0 +1,20 @@
+uuid: f664c68c-ddf0-4cc2-97c6-bbbd9712fe96
+langcode: fr
+status: true
+dependencies:
+  theme:
+    - blue2i
+_core:
+  default_config_hash: OQ9aJ-4qVwK1x00o9EOYK4eFDjQr_HLpbPiJaPSVZiQ
+id: blue2i_local_actions
+theme: blue2i
+region: content
+weight: -10
+provider: null
+plugin: local_actions_block
+settings:
+  id: local_actions_block
+  label: 'Primary admin actions'
+  label_display: '0'
+  provider: core
+visibility: {  }

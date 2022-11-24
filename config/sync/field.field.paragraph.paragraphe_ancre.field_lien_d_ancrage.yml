@@ -1,0 +1,23 @@
+uuid: 5cba88d7-05e5-4b25-9f06-3ac7aa90492f
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_lien_d_ancrage
+    - paragraphs.paragraphs_type.paragraphe_ancre
+  module:
+    - link
+id: paragraph.paragraphe_ancre.field_lien_d_ancrage
+field_name: field_lien_d_ancrage
+entity_type: paragraph
+bundle: paragraphe_ancre
+label: 'Lien d''ancrage'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

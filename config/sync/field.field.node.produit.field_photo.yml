@@ -1,0 +1,29 @@
+uuid: 5cb861a1-d3c8-4ee0-ba7b-e82521a8c367
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_photo
+    - media.type.image
+    - node.type.produit
+id: node.produit.field_photo
+field_name: field_photo
+entity_type: node
+bundle: produit
+label: Photo
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
