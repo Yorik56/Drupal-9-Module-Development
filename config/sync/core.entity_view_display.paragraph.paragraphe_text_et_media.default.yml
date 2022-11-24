@@ -1,0 +1,41 @@
+uuid: a7168aa6-ad02-4324-b846-480502a36b99
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.paragraphe_text_et_media.field_ptm_media
+    - field.field.paragraph.paragraphe_text_et_media.field_ptm_texte
+    - field.field.paragraph.paragraphe_text_et_media.field_ptm_titre
+    - paragraphs.paragraphs_type.paragraphe_text_et_media
+  module:
+    - text
+id: paragraph.paragraphe_text_et_media.default
+targetEntityType: paragraph
+bundle: paragraphe_text_et_media
+mode: default
+content:
+  field_ptm_media:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_ptm_texte:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_ptm_titre:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

@@ -1,0 +1,21 @@
+uuid: 114ed768-6f9e-4a92-83c2-282e4ad10dc2
+langcode: fr
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_ptm_titre
+field_name: field_ptm_titre
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

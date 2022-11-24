@@ -1,0 +1,19 @@
+uuid: 525f9b78-360b-490b-bc93-9b2b517625d6
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ptm_titre
+    - paragraphs.paragraphs_type.paragraphe_text_et_media
+id: paragraph.paragraphe_text_et_media.field_ptm_titre
+field_name: field_ptm_titre
+entity_type: paragraph
+bundle: paragraphe_text_et_media
+label: Titre
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

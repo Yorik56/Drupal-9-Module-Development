@@ -1,0 +1,21 @@
+uuid: 851ee852-dee0-4fe9-bc66-28f3cfa1e6f7
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ptm_texte
+    - paragraphs.paragraphs_type.paragraphe_text_et_media
+  module:
+    - text
+id: paragraph.paragraphe_text_et_media.field_ptm_texte
+field_name: field_ptm_texte
+entity_type: paragraph
+bundle: paragraphe_text_et_media
+label: Texte
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

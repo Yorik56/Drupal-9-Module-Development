@@ -1,0 +1,29 @@
+uuid: 38c78dff-563d-470a-a412-c58251f67ed8
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ptm_media
+    - media.type.image
+    - paragraphs.paragraphs_type.paragraphe_text_et_media
+id: paragraph.paragraphe_text_et_media.field_ptm_media
+field_name: field_ptm_media
+entity_type: paragraph
+bundle: paragraphe_text_et_media
+label: Média
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

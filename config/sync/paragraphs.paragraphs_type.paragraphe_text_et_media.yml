@@ -1,0 +1,10 @@
+uuid: 1c22d3b0-880b-4574-b259-aeeea5a7890f
+langcode: fr
+status: true
+dependencies: {  }
+id: paragraphe_text_et_media
+label: 'Paragraphe text et média'
+icon_uuid: null
+icon_default: null
+description: 'Un texte formaté et un média de type image'
+behavior_plugins: {  }
