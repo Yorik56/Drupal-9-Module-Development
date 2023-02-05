@@ -5,8 +5,11 @@
  *  Hello World module file.
  */
 
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Render\BubbleableMetadata;
 use Drupal\Core\Routing\RouteMatchInterface;
+use \Drupal\node\Entity\NodeType;
 
 
 /**
@@ -113,6 +116,15 @@ function template_preprocess_hello_world_salutation(&$variables) {
 	];
 }
 
+function hello_world_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+	if ($entity->getEntityTypeId() === 'node' && $view_mode === 'full') {
+		$build['disclaimer'] = [
+			'#markup' => t('This is a disclaimer'),
+			'#weight' => 100,
+		];
+	}
+}
+
 /**
  * Implements hook_theme_suggestions_HOOK().
  */
@@ -124,6 +136,33 @@ function hello_world_theme_suggestions_hello_world_salutation($variables) {
 	}
 
 	return $suggestions;
+}
+
+function hello_world_node_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+	if ($display->getComponent('disclaimer')) {
+		$build['disclaimer'] = [
+			'#markup' => t('This is a disclaimer')
+		];
+	}
+
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function hello_world_entity_extra_field_info() {
+	$extra = [];
+	foreach (NodeType::loadMultiple() as $bundle) {
+		$extra['node'][$bundle->id()]['display']['disclaimer'] = [
+			'label' => t('Disclaimer'),
+			'description' => t('A gereral disclaimer'),
+			'weight' => 100,
+			'visible' => TRUE,
+		];
+	}
+
+	return $extra;
+
 }
 
 
