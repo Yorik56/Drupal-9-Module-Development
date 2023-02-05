@@ -1,8 +1,9 @@
+import GLightbox from 'glightbox';
+
 /**
  * @file
  * blue2i behaviors.
  */
-
 (function ($, Drupal) {
 
     'use strict';
@@ -13,6 +14,7 @@
     Drupal.behaviors.blue2i = {
         attach: function (context, settings) {
             console.log('It works!');
+            const lightbox = GLightbox();
             $(".slider")
             .on('afterChange init', function(event, slick, direction){
                     // console.log('afterChange/init', event, slick, slick.$slides);

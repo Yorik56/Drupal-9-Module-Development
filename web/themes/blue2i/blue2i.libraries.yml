@@ -19,3 +19,4 @@ slick-carousel:
       node_modules/slick-carousel/slick/slick-theme.css: {}
   js:
     node_modules/slick-carousel/slick/slick.js: {}
+

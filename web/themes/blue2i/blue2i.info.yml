@@ -4,11 +4,14 @@ base theme: bootstrap5
 description: A flexible theme with a responsive, mobile-first layout.
 package: Custom
 core: 8.x
+ckeditor5-stylesheets:
+  - 'css/ckeditor5-styles.css'
 core_version_requirement: ^8 || ^9
 libraries:
   - blue2i/global
   - blue2i/global-styling
   - blue2i/slick-carousel
+  - blue2i/photoswipe
 regions:
   header: 'Header'
   primary_menu: 'Primary menu'
