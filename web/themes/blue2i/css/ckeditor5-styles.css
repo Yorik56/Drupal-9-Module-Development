@@ -1,0 +1,15 @@
+/*css/style.css*/
+h2 {
+  color: green;
+}
+
+a.link_style {
+  color: #000;
+  border: 2px solid #000;
+  border-radius: 35px;
+  background-color: red;
+  text-decoration: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  box-shadow: 0 0px 3px 0px #000;
+}
