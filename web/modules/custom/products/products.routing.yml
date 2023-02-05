@@ -1,0 +1,7 @@
+entity.importer.collection:
+    path: '/admin/structure/importer'
+    defaults:
+        _entity_list: 'importer'
+        _title: 'Importer list'
+    requirements:
+        _permission: 'administer site configuration'

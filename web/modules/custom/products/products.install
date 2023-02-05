@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Products module install file.
+ */
+
+/**
+ * Creates the Product entity type.
+ */
+function products_update_9000(&$sandbox) {
+	\Drupal::entityTypeManager()->clearCachedDefinitions();
+
+	$entity_type = \Drupal::entityTypeManager()->getDefinition('product');
+	\Drupal::entityDefinitionUpdateManager()->installEntityType($entity_type);
+
+	$entity_type = \Drupal::entityTypeManager()->getDefinition('importer');
+	\Drupal::entityDefinitionUpdateManager()->installEntityType($entity_type);
+}
