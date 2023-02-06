@@ -636,5 +636,203 @@ $node_violations = $node->validate();
 $nid = $node->get('nid');
 $nid_list_violations = $nid->validate();
 $nid_item_violations = $nid->first()->validate();
+```
 
+# Chapter 7 - Your Own Custom Entity and Plugin Types
+
+Documentation - Drupal schema APi
+
+- https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Database%21database.api.php/group/schemaapi/9.2.x
+- https://www.drupal.org/docs/7/api/schema-api
+
+Documentation - Drupal Select Interface & Interface
+- https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Database%21Query%21SelectInterface.php/interface/SelectInterface/8.2.x
+- https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Condition%21ConditionInterface.php/interface/ConditionInterface/9.2.x
+
+Documentation - Drupal Pager render elements
+- https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Render%21Element%21Pager.php/class/Pager/8.2.x
+
+Documentation - Drupal hook_update_N & Post update hooks
+- https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Extension%21module.api.php/function/hook_update_N/8.2.x
+- https://api.drupal.org/api/drupal/core%21lib%21Drupal%21Core%21Extension%21module.api.php/function/hook_post_update_NAME/8.2.x
+
+> Database instanciation and queries
+
+```php
+$database = \Database::database();
+// Using brut sql
+$result = $database->query("SELECT * FROM {players} WHERE [id] = :id", [':id' => 1]);
+// Using query builder
+$result = $database->select('players','p')
+    ->fields('p'),
+    ->condition('id',1)
+    ->execute();
+```
+
+> Handling the results
+
+```php
+foreach ($results as $record) {
+    $id = $record->id;
+    $team_id = $record->team_id;
+    $name = $record->name;
+    $data = $record->data;
+}
+
+# Use some fetchers
+
+//Return the same array as before
+$records = $result->fetchAll();
+// Return an array keyed by some field
+$records = $result->fetchAllAssoc('id');
+```
+
+> More complexe select Queries
+```php
+  $result = $database->query(
+    "SELECT p.[id], p.[name] as player_name, t.[name] as team_name,
+    t.[description] as team_description, p.[data]
+    FROM {players} p
+    JOIN {teams} t ON t.[id] = p.[team_id]
+    WHERE p.[id] = :id",
+    [':id' => 1])->fetchAll();
+
+# Same query using the query builder
+$query = $database->select('players', 'p');
+$query->join('teams', 't');
+$query->addField('p','name','player_name');
+$query->addField('t','name','team_name');
+$query->addField('t','description','team_description');
+$result = $query
+    ->fields('p', ['id', 'data'])
+    ->condition('p.id',1)
+    ->execute();
+
+$records = $result->fetchAll();
+```
+
+> Range queries
+```php
+// Limit the result to the first 10 records
+$result = $database->queryRange("SELECT * FROM {players}", 0, 10);
+// or using the method range
+$result = $databse->select('players','p')
+    ->fields('p')
+    ->range(0,10)
+    ->execute();
+```
+
+> Pagers
+```php
+$limit = 5;
+		$query = $this->database->select('players', 'p')
+			->fields('p')
+			->extend('\Drupal\Core\Database\Query\PagerSelectExtender')
+			->limit($limit);
+```
+
+> Insert Queries
+```php
+$database->insert('players');
+$fields = [
+  'name' => 'Diego M',
+  'data' => serialize([
+    'known for' => 'Hands of god'
+  ])
+];
+$id = $database->insert('players')
+    ->fields($fields)
+    ->execute();
+// Insert Query with multiple sets of values
+$values = [
+    ['name' => 'Novak D.', 'data' => serialize(['sport' => 'tennis'])],
+    ['name' => 'Michael P.', 'data' => serialize(['sport' => 'swimming'])]
+]
+
+$fields = ['name','data'];
+$query = $database->insert('players')->fields($fields);
+foreach ($values as $value){
+    $query->values($value);
+}
+$result = $query->execute();
+```
+
+> Update Queries
+```php
+$result = $database->update('players')->fields([
+    'data' => serialize([
+        'sport'   => 'swimming',
+        'feature' => 'This guy can swim',
+    ])
+])
+->condition('name','Michael P.')
+->execute();
+```
+
+> Delete Queries
+```php
+$result = $database->delete('players')
+    ->condition('name','Michael P.')
+    ->execute();
+```
+
+> Transactions
+```php
+$transaction = $database->startTransaction();
+try {
+    $database->update('players')
+        ->fields([
+            'data' => serialize([
+                'sport' => 'tennis',
+                'feature' => 'This guy can play tennis'
+            ])
+        ])
+        ->condition('name','Novak D.')
+        ->execute();
+} catch(\Exception $e){
+    $transaction->rollback();
+    watchdog_exception('my_type', $e);
+}
+```
+
+> Query Alters
+```php
+// The query that we want to alter need to be tagged
+$result = $database->select('players','p')
+    ->fields('p')
+    ->addTag('player_query')
+    ->execute();
+
+// Then we can call this tag inside a hook query alter
+/**
+ * Implements hook_query_alter().
+ */
+function module_name_query_alter(Drupal\Core\Database\Query\AlterableInterface $query){
+    if(!query->hasTag('player_query')){
+        return;
+    }
+
+    // Alter query
+    $query->join('teams','t','t.id = p.team_id');
+    $query->addField('t','name','team_name');
+    $query->condition('t.name','My team');
+}
+
+// There is a hook_query_alter_TAG_alter
+/**
+ * Implements hook_query_TAG_alter
+ */
+function module_name_query_player_query_alter(Drupal\Core\Database\AlterableInterface $query){
+    // sure to alter only the "player_query" tagged queries.
+}
+```
+
+> The schema object on database
+> Can be used on a hook update: see "sport.install: sports_update_9001"
+```php
+$schema->creatTable('new_table',$table_definition);
+$schema->addField('teams','location',$field);
+$schema->dropTable('table_name');
+$schema->dropField('table_name','field_to_delete');
+$schema->changeField('table_name','field_name_to_change','new_field_name',$new_field_definition);
 ```
